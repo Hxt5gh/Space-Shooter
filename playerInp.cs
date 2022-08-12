@@ -19,7 +19,7 @@ public class playerInp : MonoBehaviour
 
     float horizontalFlow , verticalFlow;
 
-
+    bool isControlEnabled = true;
 
     void Start()
     {
@@ -29,13 +29,24 @@ public class playerInp : MonoBehaviour
     
     void Update()
     {
-
+      //  if(isControlEnabled == true)
+     //   {
         ProcessTranslation();
         ProcessRotation();
+     //   }
+
      
-
-
     }
+
+
+    void    OnDead()
+    {
+        print("control frez");
+        isControlEnabled = false;
+        
+    }
+
+
 
 
     private void  ProcessRotation()
@@ -77,12 +88,7 @@ public class playerInp : MonoBehaviour
 
     
     
-     void OnTriggerEnter(Collider other)
-    {
-        
-        print("trigger hapened"  + other.name + "hitted");
-    }
-      
+   
 
     
 }
